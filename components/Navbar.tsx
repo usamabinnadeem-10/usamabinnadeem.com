@@ -158,6 +158,25 @@ export const Navbar: React.FC = () => {
                   </Link>
                 );
               })}
+
+              {/* Theme Toggle for Mobile */}
+              <motion.button
+                onClick={toggleTheme}
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors"
+                whileTap={{ scale: 0.98 }}
+              >
+                {theme === 'dark' ? (
+                  <>
+                    <Sun className="w-5 h-5" />
+                    <span className="font-medium">Light Mode</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-5 h-5" />
+                    <span className="font-medium">Dark Mode</span>
+                  </>
+                )}
+              </motion.button>
             </div>
           </motion.div>
         )}

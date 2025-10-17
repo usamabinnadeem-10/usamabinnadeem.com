@@ -38,8 +38,8 @@ export const ContactSection: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             {/* Gradient Background Blob */}
-            <div className="relative">
-              <div className="absolute -inset-20 bg-gradient-to-br from-purple-600/20 via-pink-600/20 to-orange-600/20 rounded-full blur-3xl opacity-50" />
+            <div className="relative overflow-hidden">
+              <div className="absolute -inset-10 md:-inset-20 bg-gradient-to-br from-purple-600/20 via-pink-600/20 to-orange-600/20 rounded-full blur-3xl opacity-50" />
               <div className="relative">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Bringing your ideas to life.

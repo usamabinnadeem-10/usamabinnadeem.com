@@ -33,11 +33,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       setTheme(savedTheme);
       document.documentElement.classList.toggle('light', savedTheme === 'light');
     } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initialTheme = prefersDark ? 'dark' : 'light';
-      setTheme(initialTheme);
-      document.documentElement.classList.toggle('light', initialTheme === 'light');
+      // Default to dark theme
+      setTheme('dark');
+      document.documentElement.classList.remove('light');
     }
   }, []);
 
