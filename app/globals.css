@@ -1,35 +1,10 @@
 @import "tailwindcss";
 
-:root {
-  /* Dark theme colors (default) */
-  --color-primary: 168 85 247; /* Purple #A855F7 */
-  --color-secondary: 139 92 246; /* Lighter purple #8B5CF6 */
-  --color-background: 10 10 15; /* Very dark blue/black #0A0A0F */
-  --color-background-secondary: 17 17 27; /* Slightly lighter #11111B */
-  --color-text-primary: 255 255 255; /* White */
-  --color-text-secondary: 156 163 175; /* Gray #9CA3AF */
-  --color-accent: 139 92 246; /* Purple accent */
-  --color-card-bg: 17 17 27; /* Dark card background */
-  --gradient-from: 139 92 246; /* Purple */
-  --gradient-to: 168 85 247; /* Lighter purple */
-}
-
-html.light {
-  /* Light theme colors */
-  --color-primary: 139 92 246; /* Purple #8B5CF6 */
-  --color-secondary: 168 85 247; /* Lighter purple #A855F7 */
-  --color-background: 255 255 255; /* White */
-  --color-background-secondary: 248 250 252; /* Light gray #F8FAFC */
-  --color-text-primary: 15 23 42; /* Dark slate #0F172A */
-  --color-text-secondary: 100 116 139; /* Gray #64748B */
-  --color-accent: 139 92 246; /* Purple accent */
-  --color-card-bg: 255 255 255; /* White card background */
-  --gradient-from: 139 92 246; /* Purple */
-  --gradient-to: 168 85 247; /* Lighter purple */
-}
+/* Configure dark mode to use data-theme attribute */
+@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 body {
-  background: #000000;
+  background: #0a0a0f;
   background-image:
     linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px),
@@ -37,20 +12,16 @@ body {
     radial-gradient(ellipse at bottom, rgba(168, 85, 247, 0.1), transparent 50%);
   background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%;
   background-position: 0 0, 0 0, 0 0, 0 0;
-  color: rgb(var(--color-text-primary));
   font-family: var(--font-sans);
   font-feature-settings: "rlig" 1, "calt" 1;
   min-height: 100vh;
+  color: #ffffff;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='8' fill='none' stroke='%238B5CF6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%238B5CF6'/%3E%3C/svg%3E") 12 12, auto;
 }
 
-a, button, [role="button"] {
-  cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%238B5CF6' fill-opacity='0.2' stroke='%238B5CF6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='3' fill='%23A855F7'/%3E%3C/svg%3E") 12 12, pointer;
-}
-
-html.light body {
-  background: #FFFFFF;
+[data-theme="light"] body {
+  background: #ffffff;
   background-image:
     linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px),
@@ -58,7 +29,11 @@ html.light body {
     radial-gradient(ellipse at bottom, rgba(168, 85, 247, 0.05), transparent 50%);
   background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%;
   background-position: 0 0, 0 0, 0 0, 0 0;
-  color: rgb(var(--color-text-primary));
+  color: #111827;
+}
+
+a, button, [role="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%238B5CF6' fill-opacity='0.2' stroke='%238B5CF6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='3' fill='%23A855F7'/%3E%3C/svg%3E") 12 12, pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,11 +43,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Smooth gradient backgrounds */
 .gradient-primary {
-  background: linear-gradient(135deg, rgb(var(--gradient-from)) 0%, rgb(var(--gradient-to)) 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, rgb(var(--gradient-from)) 0%, rgb(var(--gradient-to)) 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -90,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(139, 92, 246, 0.1);
 }
 
-html.light .glass {
+[data-theme="light"] .glass {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(139, 92, 246, 0.15);
 }
@@ -137,103 +112,4 @@ html.light .glass {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
-}
-
-/* Theme-aware utility classes */
-.bg-card {
-  background-color: rgba(var(--color-card-bg), 0.05);
-}
-
-.text-primary {
-  color: rgb(var(--color-text-primary));
-}
-
-.text-secondary {
-  color: rgb(var(--color-text-secondary));
-}
-
-.border-theme {
-  border-color: rgba(var(--color-accent), 0.1);
-}
-
-/* Light mode specific overrides */
-html.light .text-gray-400 {
-  color: rgb(100, 116, 139) !important;
-}
-
-html.light .text-gray-300 {
-  color: rgb(71, 85, 105) !important;
-}
-
-html.light .text-gray-500 {
-  color: rgb(100, 116, 139) !important;
-}
-
-html.light .text-gray-600 {
-  color: rgb(71, 85, 105) !important;
-}
-
-html.light .text-white {
-  color: rgb(15, 23, 42) !important;
-}
-
-html.light .bg-white\/5 {
-  background-color: rgba(0, 0, 0, 0.03) !important;
-}
-
-html.light .bg-white\/10 {
-  background-color: rgba(0, 0, 0, 0.05) !important;
-}
-
-html.light .bg-white\/20 {
-  background-color: rgba(0, 0, 0, 0.08) !important;
-}
-
-html.light .border-white\/10 {
-  border-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-html.light .border-white\/20 {
-  border-color: rgba(0, 0, 0, 0.15) !important;
-}
-
-html.light .bg-black\/50,
-html.light .bg-black\/90 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* Project tags in light mode */
-html.light .bg-purple-500\/10 {
-  background-color: rgba(139, 92, 246, 0.15) !important;
-}
-
-html.light .text-purple-300 {
-  color: rgb(124, 58, 237) !important;
-}
-
-html.light .text-purple-400 {
-  color: rgb(109, 40, 217) !important;
-}
-
-html.light .border-purple-500\/20 {
-  border-color: rgba(139, 92, 246, 0.3) !important;
-}
-
-html.light .border-purple-500\/30 {
-  border-color: rgba(139, 92, 246, 0.4) !important;
-}
-
-html.light .border-purple-500\/50 {
-  border-color: rgba(139, 92, 246, 0.6) !important;
-}
-
-/* Contact button in light mode */
-html.light .bg-white {
-  background-color: rgb(139, 92, 246) !important;
-  color: white !important;
-}
-
-html.light .bg-white:hover,
-html.light .hover\:bg-gray-200:hover {
-  background-color: rgb(124, 58, 237) !important;
 }

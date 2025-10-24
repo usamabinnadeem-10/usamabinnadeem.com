@@ -31,11 +31,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const savedTheme = localStorage.getItem('theme') as Theme | null;
     if (savedTheme) {
       setTheme(savedTheme);
-      document.documentElement.classList.toggle('light', savedTheme === 'light');
+      document.documentElement.dataset.theme = savedTheme;
     } else {
       // Default to dark theme
       setTheme('dark');
-      document.documentElement.classList.remove('light');
+      document.documentElement.dataset.theme = 'dark';
     }
   }, []);
 
@@ -43,7 +43,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('light', newTheme === 'light');
+    document.documentElement.dataset.theme = newTheme;
   };
 
   return (
