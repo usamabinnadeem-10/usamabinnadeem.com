@@ -23,10 +23,10 @@ export const ProjectsSection: React.FC = () => {
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Featured Projects
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             A selection of projects that showcase my skills and experience in web development and design.
           </p>
         </motion.div>
@@ -48,7 +48,7 @@ export const ProjectsSection: React.FC = () => {
           {projects.map((project) => (
             <Link key={project.id} href={`/projects/${project.slug}`}>
               <motion.div
-                className="group bg-gray-50 dark:bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 hover:border-purple-500/30 dark:hover:border-purple-500/30 transition-all duration-300 flex flex-col h-full cursor-pointer"
+                className="group bg-card backdrop-blur-sm rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300 flex flex-col h-full cursor-pointer"
                 variants={{
                   hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0 },
@@ -56,8 +56,8 @@ export const ProjectsSection: React.FC = () => {
                 whileHover={{ scale: 1.01, transition: { duration: 0.1 } }}
               >
                 {/* Project Image */}
-                <div className="relative h-48 bg-gradient-to-br from-purple-100 dark:from-purple-600/20 to-blue-100 dark:to-blue-600/20 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-500">
+                <div className="relative h-48 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
                     <div className="text-center">
                       <div className="text-6xl mb-2">🖼️</div>
                       <p className="text-sm">Project Image</p>
@@ -75,10 +75,10 @@ export const ProjectsSection: React.FC = () => {
 
                 {/* Project Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-xl font-bold mb-2 text-card-foreground group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
                     {project.shortDescription}
                   </p>
 
@@ -87,7 +87,7 @@ export const ProjectsSection: React.FC = () => {
                     {project.tags.map((tag: string) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 text-xs font-medium bg-purple-100 dark:bg-purple-500/10 text-purple-700 dark:text-purple-300 rounded-full border border-purple-300 dark:border-purple-500/20"
+                        className="px-3 py-1 text-xs font-medium bg-muted text-accent rounded-full border border-accent/30"
                       >
                         {tag}
                       </span>
@@ -95,7 +95,7 @@ export const ProjectsSection: React.FC = () => {
                   </div>
 
                   {/* View Details Link */}
-                  <div className="flex items-center gap-2 mt-auto pt-2 text-sm text-purple-600 dark:text-purple-400 group-hover:gap-3 transition-all">
+                  <div className="flex items-center gap-2 mt-auto pt-2 text-sm text-accent group-hover:gap-3 transition-all">
                     <span>View Details</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>

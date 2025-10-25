@@ -9,6 +9,7 @@ import { useTheme } from '@/components/ThemeProvider';
 
 const navItems = [
   { name: 'Home', path: '/' },
+  { name: 'Skills', path: '/#capabilities' },
   { name: 'Projects', path: '/#projects' },
   { name: 'Contact', path: '/#contact' },
 ];
@@ -41,7 +42,7 @@ export const Navbar: React.FC = () => {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/50 dark:bg-black/50 backdrop-blur-lg border-b border-white/10 dark:border-white/10'
+          ? 'bg-background/50 backdrop-blur-lg border-b border-border'
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -80,8 +81,8 @@ export const Navbar: React.FC = () => {
                   <motion.div
                     className={`px-4 py-2 rounded-lg font-medium transition-colors relative ${
                       isActive
-                        ? 'text-black dark:text-white'
-                        : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-white'
+                        ? 'text-foreground'
+                        : 'text-muted-foreground hover:text-foreground'
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -90,7 +91,7 @@ export const Navbar: React.FC = () => {
                     {isActive && (
                       <motion.div
                         layoutId="navbar-indicator"
-                        className="absolute inset-0 bg-white/10 dark:bg-white/10 rounded-lg -z-10"
+                        className="absolute inset-0 bg-secondary rounded-lg -z-10"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -102,29 +103,29 @@ export const Navbar: React.FC = () => {
             {/* Theme Toggle */}
             <motion.button
               onClick={toggleTheme}
-              className="ml-4 p-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/10 transition-colors"
+              className="ml-4 p-2 rounded-lg hover:bg-secondary transition-colors"
               aria-label="Toggle theme"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-gray-400 hover:text-yellow-400 dark:text-gray-400 dark:hover:text-yellow-400 transition-colors" />
+                <Sun className="w-5 h-5 text-muted-foreground hover:text-yellow-400 transition-colors" />
               ) : (
-                <Moon className="w-5 h-5 text-gray-600 hover:text-purple-600 transition-colors" />
+                <Moon className="w-5 h-5 text-muted-foreground hover:text-accent transition-colors" />
               )}
             </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/10 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-white dark:text-white" />
+              <X className="w-6 h-6 text-foreground" />
             ) : (
-              <Menu className="w-6 h-6 text-white dark:text-white" />
+              <Menu className="w-6 h-6 text-foreground" />
             )}
           </button>
         </div>
@@ -134,7 +135,7 @@ export const Navbar: React.FC = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden bg-black/90 dark:bg-black/90 backdrop-blur-lg border-t border-white/10 dark:border-white/10"
+            className="md:hidden bg-background/90 backdrop-blur-lg border-t border-border"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -148,8 +149,8 @@ export const Navbar: React.FC = () => {
                     <motion.div
                       className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
                         isActive
-                          ? 'bg-white/10 text-white dark:bg-white/10 dark:text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white'
+                          ? 'bg-secondary text-foreground'
+                          : 'text-muted-foreground hover:bg-secondary/50 hover:text-foreground'
                       }`}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -161,8 +162,11 @@ export const Navbar: React.FC = () => {
 
               {/* Theme Toggle for Mobile */}
               <motion.button
-                onClick={toggleTheme}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white transition-colors"
+                onClick={() => {
+                  toggleTheme();
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:bg-secondary/50 hover:text-foreground transition-colors"
                 whileTap={{ scale: 0.98 }}
               >
                 {theme === 'dark' ? (

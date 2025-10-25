@@ -53,17 +53,17 @@ export const Hero: React.FC = () => {
               A <span className="gradient-text">Software Developer</span>
             </h2>
 
-            <p className="text-base md:text-lg text-gray-400 dark:text-gray-400 mb-8 max-w-2xl leading-relaxed">
-              A <span className="text-gray-900 dark:text-white font-medium">fullstack developer</span> with solid foundations in{' '}
-              <span className="text-gray-900 dark:text-white font-medium">design</span>. Passionate about crafting{' '}
-              <span className="text-gray-900 dark:text-white font-medium">seamless user experiences</span>. I thrive at the intersection of creativity and functionality.
+            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+              A <span className="text-foreground font-medium">fullstack developer</span> with solid foundations in{' '}
+              <span className="text-foreground font-medium">design</span>. Passionate about crafting{' '}
+              <span className="text-foreground font-medium">seamless user experiences</span>. I thrive at the intersection of creativity and functionality.
             </p>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10 justify-center md:justify-start">
               <motion.a
                 href="#contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-black font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -72,7 +72,7 @@ export const Hero: React.FC = () => {
               </motion.a>
               <motion.a
                 href="#projects"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white font-medium hover:bg-gray-200 dark:hover:bg-white/20 border border-gray-300 dark:border-white/20 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-medium hover:bg-secondary/80 border border-border transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -82,7 +82,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Divider */}
-            <div className="w-px h-8 bg-gray-300 dark:bg-gray-600 mx-auto md:mx-0 mb-6" />
+            <div className="w-px h-8 bg-border mx-auto md:mx-0 mb-6" />
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center md:justify-start">
@@ -95,7 +95,7 @@ export const Hero: React.FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 border border-gray-300 dark:border-white/10 hover:border-purple-500/50 dark:hover:border-purple-500/50 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-secondary hover:bg-secondary/80 border border-border hover:border-accent flex items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-300"
                   aria-label={social.label}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
