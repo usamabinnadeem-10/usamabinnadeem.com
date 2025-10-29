@@ -51,29 +51,8 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
-          <Link href="/">
-            <motion.div
-              className="flex items-center gap-2 cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#gradient)" />
-                <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="url(#gradient)" />
-                <defs>
-                  <linearGradient id="gradient" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#8B5CF6" />
-                    <stop offset="1" stopColor="#A855F7" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <span className="text-xl font-bold">usama.dev</span>
-            </motion.div>
-          </Link>
-
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1 mx-auto">
             {navItems.map((item) => {
               const isActive = pathname === item.path;
               return (
@@ -103,7 +82,7 @@ export const Navbar: React.FC = () => {
             {/* Theme Toggle */}
             <motion.button
               onClick={toggleTheme}
-              className="ml-4 p-2 rounded-lg hover:bg-secondary transition-colors"
+              className="ml-4 p-2 rounded-lg hover:bg-secondary transition-colors cursor-pointer"
               aria-label="Toggle theme"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

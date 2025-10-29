@@ -51,7 +51,7 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
         >
           <Link
             href="/#capabilities"
-            className="inline-flex items-center text-gray-400 hover:text-white transition-colors"
+            className="inline-flex items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
             Back to Capabilities
@@ -73,24 +73,24 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
                 {capability.title}
               </h1>
-              <p className="text-purple-400 text-base sm:text-lg">
+              <p className="text-purple-600 dark:text-purple-400 text-base sm:text-lg">
                 {capability.shortDescription}
               </p>
             </div>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+          <div className="bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10">
             <h2 className="text-2xl font-bold mb-4">{capability.hero.title}</h2>
-            <p className="text-gray-400 text-lg mb-6">
+            <p className="text-gray-700 dark:text-gray-400 text-lg mb-6">
               {capability.hero.description}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {capability.hero.highlights.map((highlight, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4 text-purple-400" />
+                    <Check className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                   </div>
-                  <span className="text-gray-300">{highlight}</span>
+                  <span className="text-gray-800 dark:text-gray-300">{highlight}</span>
                 </div>
               ))}
             </div>
@@ -107,7 +107,7 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
           <h2 className="text-3xl font-bold mb-4 text-center">
             {capability.approach.title}
           </h2>
-          <p className="text-gray-400 text-lg text-center mb-12 max-w-3xl mx-auto">
+          <p className="text-gray-700 dark:text-gray-400 text-lg text-center mb-12 max-w-3xl mx-auto">
             {capability.approach.description}
           </p>
 
@@ -120,17 +120,17 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300"
+                  className="bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-white/10 hover:border-purple-500/30 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
                   <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
-                    <StepIcon className="w-6 h-6 text-purple-400" />
+                    <StepIcon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                   </div>
-                  <div className="text-sm text-purple-400 mb-2">
+                  <div className="text-sm text-purple-600 dark:text-purple-400 mb-2">
                     Step {index + 1}
                   </div>
                   <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-400 text-sm">{step.description}</p>
+                  <p className="text-gray-700 dark:text-gray-400 text-sm">{step.description}</p>
                 </motion.div>
               );
             })}
@@ -148,7 +148,7 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
           <h2 className="text-3xl font-bold mb-4 text-center">
             Technologies & Tools
           </h2>
-          <p className="text-gray-400 text-lg text-center mb-12">
+          <p className="text-gray-700 dark:text-gray-400 text-lg text-center mb-12">
             The stack I use to deliver exceptional results
           </p>
 
@@ -160,16 +160,16 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300"
+                className="bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 hover:border-purple-500/30 transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="text-lg font-bold">{tech.name}</h3>
-                  <span className="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-400">
+                  <span className="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-700 dark:text-purple-400">
                     {tech.category}
                   </span>
                 </div>
-                <p className="text-gray-400 text-sm">{tech.description}</p>
+                <p className="text-gray-700 dark:text-gray-400 text-sm">{tech.description}</p>
               </motion.div>
             ))}
           </div>
@@ -186,7 +186,7 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
           <h2 className="text-3xl font-bold mb-4 text-center">
             Real-World Impact
           </h2>
-          <p className="text-gray-400 text-lg text-center mb-12">
+          <p className="text-gray-700 dark:text-gray-400 text-lg text-center mb-12">
             Examples of how I&apos;ve applied this skill to solve problems
           </p>
 
@@ -198,11 +198,11 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-purple-500/30 transition-all duration-300"
+                className="bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:border-purple-500/30 transition-all duration-300"
               >
                 <div className="flex items-start gap-6">
                   <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl font-bold text-purple-400">
+                    <span className="text-2xl font-bold text-purple-600 dark:text-purple-400">
                       {index + 1}
                     </span>
                   </div>
@@ -210,12 +210,12 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
                     <h3 className="text-xl font-bold mb-3">
                       {example.title}
                     </h3>
-                    <p className="text-gray-400 mb-4">{example.description}</p>
+                    <p className="text-gray-700 dark:text-gray-400 mb-4">{example.description}</p>
                     <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4">
-                      <div className="text-sm text-purple-400 mb-1">
+                      <div className="text-sm text-purple-600 dark:text-purple-400 mb-1">
                         Outcome
                       </div>
-                      <p className="text-white font-medium">{example.outcome}</p>
+                      <p className="text-gray-900 dark:text-white font-medium">{example.outcome}</p>
                     </div>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
         >
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-12 border border-purple-500/20">
             <h2 className="text-3xl font-bold mb-4">{capability.cta.title}</h2>
-            <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-700 dark:text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
               {capability.cta.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -246,7 +246,7 @@ const SkillDetailPage: React.FC<SkillDetailPageProps> = ({ capability }) => {
               </Link>
               <Link
                 href="/#capabilities"
-                className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white/5 text-white font-medium hover:bg-white/10 border border-white/20 transition-colors"
+                className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-gray-100 dark:bg-white/5 text-gray-900 dark:text-white font-medium hover:bg-gray-200 dark:hover:bg-white/10 border border-gray-300 dark:border-white/20 transition-colors"
               >
                 View All Capabilities
               </Link>
