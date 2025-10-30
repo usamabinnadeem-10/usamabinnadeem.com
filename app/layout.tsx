@@ -72,11 +72,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-black overscroll-y-none">
       <body className={`${inter.variable} ${jakarta.variable} antialiased`}>
         <ThemeProvider>
           <Navbar />
-          <main className="min-h-screen pt-16 md:pt-20">
+          <main className="min-h-dvh pt-16 md:pt-20">
             {children}
           </main>
           <Footer />
